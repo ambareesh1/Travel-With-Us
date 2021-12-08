@@ -1,0 +1,1538 @@
+<%@ Page Language="C#" AutoEventWireup="true" EnableEventValidation="false" CodeBehind="Index.aspx.cs" Inherits="AirBus.Index" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Travel With Us</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/stylish-portfolio.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    
+    <style>
+        .header
+        {
+            height:auto;
+            width:100%;
+        }
+
+        #idFlight:hover
+        {
+            border-bottom: 3px solid #00BCD4;
+            color:#BDBDBD;
+            cursor:pointer;
+        }
+       
+        .FlightClass{
+            border-bottom: 3px solid #00BCD4;
+            color:#BDBDBD;
+            cursor:pointer;
+        }
+
+         #idHotel:hover
+        {
+            border-bottom: 3px solid #8BC34A;
+            color:#BDBDBD;
+            cursor:pointer;
+        }
+
+         .HotelClass
+         {
+             border-bottom: 3px solid #8BC34A;
+            color:#BDBDBD;
+            cursor:pointer;
+         }
+
+         .form-control-static {
+    min-height: 34px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    margin-bottom: 0;
+    borDER-RADIUS: 5PX;
+}
+         .checkbox input[type=checkbox]
+         {
+             height:20px;
+             width:20px;
+         }
+
+         .list-group
+         {
+             width:100%;
+         }
+
+         .iconclass{
+             padding-right:5px;
+         }
+         
+        .circle1 {
+            width: 9px;
+            height: 9px;
+            -webkit-border-radius: 25px;
+            -moz-border-radius: 25px;
+            border-radius: 20px;
+            background-color: #AED581;
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .circle2 {
+            width: 9px;
+            height: 9px;
+            -webkit-border-radius: 25px;
+            -moz-border-radius: 25px;
+            border-radius: 20px;
+            background-color: #FFF176;
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .circle3 {
+            width: 9px;
+            height: 9px;
+            -webkit-border-radius: 25px;
+            -moz-border-radius: 25px;
+            border-radius: 20px;
+            background-color: #f3b49f;
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .circle4 {
+            width: 9px;
+            height: 9px;
+            -webkit-border-radius: 25px;
+            -moz-border-radius: 25px;
+            border-radius: 20px;
+            background-color: #80DEEA;
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .circle5 {
+            width: 9px;
+            height: 9px;
+            -webkit-border-radius: 25px;
+            -moz-border-radius: 25px;
+            border-radius: 20px;
+            background-color: #8BC34A;
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .mini-timeline:before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            bottom: 0;
+            width: 2px;
+            background: #eeeeee;
+            left: 8px;
+        }
+
+        .mini-timeline {
+            padding-left: 0;
+            list-style: none;
+            position: relative;
+            margin-left: 7%;
+        }
+        .mini-timeline > li {
+    position: relative;
+}
+        li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+        .mini-timeline-lime .timeline-icon {
+    border: 2px solid #cddc39 !important;
+}
+
+        .mini-timeline > li .timeline-body {
+    margin: 0 0px 20px 32px;
+    padding: 0;
+    position: relative;
+    background-color: #fff;
+}
+
+
+        .mini-timeline > li .timeline-icon {
+    position: absolute;
+    border-radius: 50%;
+    left: 3px;
+    top: 3px;
+    margin: 0;
+    padding: 0;
+    width: 12px;
+    height: 12px;
+    background: #fff;
+}
+
+        .mini-timeline-deeporange .timeline-icon {
+    border: 2px solid #ff5722 !important;
+}
+
+        .mini-timeline-info .timeline-icon {
+    border: 2px solid #00bcd4 !important;
+}
+
+        .mini-timeline-indigo .timeline-icon {
+    border: 2px solid #3f51b5 !important;
+}
+
+        li{
+            list-style: none;
+        }
+
+        .details{
+
+            margin-top:2%;
+        }
+
+        .iconsize{
+            font-size:12px;
+        }
+
+        .list-inline>li {
+    display: inline-block;
+    padding-right: 5px;
+    padding-left: 10px;
+    padding-bottom: 7px;
+}
+
+        li.active {
+    border-bottom: solid 3px #8BC34A;
+}
+        a {
+    color: #777;
+    text-decoration: none;
+}
+
+    a:hover{
+        text-decoration: none;
+    }
+    a:active{
+         text-decoration: none;
+         text-decoration: none;
+    }
+    a:link{
+        text-decoration:none;
+        text-decoration: none;
+    }
+    </style>
+    
+
+
+</head>
+  
+<body>
+
+    <form id="form1" runat="server">
+
+        <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="True">
+        </asp:ScriptManager>
+
+    <!-- Navigation -->
+    <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
+    <nav id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
+            <li class="sidebar-brand">
+                <a href="#top" onclick=$("#menu-close").click();>Start Bootstrap</a>
+            </li>
+            <li>
+                <a href="#top" onclick=$("#menu-close").click();>Home</a>
+            </li>
+            <li>
+                <a href="#about" onclick=$("#menu-close").click();>About</a>
+            </li>
+            <li>
+                <a href="#services" onclick=$("#menu-close").click();>Services</a>
+            </li>
+            <li>
+                <a href="#portfolio" onclick=$("#menu-close").click();>Best Offers</a>
+            </li>
+            <li>
+                <a href="#contact" onclick=$("#menu-close").click();>Contact</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Header -->
+    <header id="top" class="header">
+        <div class="text-vertical-center">
+            <h1>Travel With Us</h1>
+            <h3>Make Your Trip Happy &amp; Fun</h3>
+            <br/>
+            <a href="#about" class="btn btn-dark btn-lg">Find Out More</a>
+
+             
+        </div>
+    </header>
+  
+      <div style="width:70%;height:350px;margin:0 auto;margin-bottom:2%;background-color:#fff;position: relative;margin-top: -50px;box-shadow:2px 2px 2px 2px #888888">
+        
+          <div style="background-color:steelblue;margin-bottom:1%" class="col-lg-12" >
+             <div id="idFlight" class="col-lg-6" style="padding:10px;padding-left:0px;text-align:center;border-right:1px solid #fff">
+                <i class="fa fa-plane fa-2x " aria-hidden="true"></i> 
+                  <a style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:16px;font-weight:600;text-decoration: none;color:#F0F0F0;padding-left:10px;">
+                      Flight </a> 
+
+             </div> 
+             
+              <div id="idHotel" class="col-lg-6" style="padding:10px;text-align:center"> 
+              <i class="fa fa-bed fa-2x" aria-hidden="true"></i> 
+                       <a style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:16px;font-weight:600;text-decoration: none;color:#fff;padding-left:10px;">
+                       Hotel </a> 
+                  </div>
+                
+          </div>
+
+          <!---Flight Booking -->
+          <div id="idFlightBooking">
+           <form>
+               <div class="col-lg-12">
+               <label class="radio-inline">
+                   <input type="radio" name="optradio">Round Trip
+               </label>
+               <label class="radio-inline">
+                   <input type="radio" name="optradio">One Way
+               </label>
+               </div>
+
+                      <div class="form-group col-lg-5">
+                          <label for="txtFrom">From</label>
+                          <input type="text" class="form-control autosuggest"  id="txtFrom" placeholder="Type Departure City">
+                      </div>
+                         <div class="col-lg-2 form-group" style="margin-top:3%;color:rgba(0,0,0,.25);text-align:center" >
+                             <i class="fa fa-exchange fa-2x" aria-hidden="true"></i>
+                         </div>
+                      <div class="form-group col-lg-5">
+                          <label for="txtTo">To</label>
+                          <input type="text" class="form-control autosuggest" id="txtTo" placeholder="Type Desitnation City">
+                      </div>
+               <div class="col-lg-12">
+                      <div class="form-group col-lg-3">
+                           <span class="glyphicon glyphicon-calendar"></span>  <label for="txtfromDate">Departure</label>
+                        <input type="text" class="form-control" id="txtfromDate" placeholder="Departure">  
+                           
+                          </div>
+                 <div class="form-group col-lg-3">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                      <label for="txtToDate">Return</label>
+                        <input type="text" class="form-control" id="txtToDate" placeholder="Return">  
+                 </div>
+                <div class="col-lg-2">
+
+                    <label for="txtFrom">ADULT: (12+ YRS)</label>
+                          <input type="number" class="form-control" id="txtAdult">
+
+                </div>
+               <div class="col-lg-2">
+
+                    <label for="txtChild">CHILD: (2-11 YRS)</label>
+                          <input type="number" class="form-control" id="txtChild" >
+
+                </div>
+               <div class="col-lg-2">
+
+                    <label for="txtChild">INFANT: (0-2 YRS)</label>
+                          <input type="number" class="form-control" id="txtInfants" >
+
+                </div>
+                   </div>
+               <div class="col-lg-12">
+               
+               <div class="form-group col-lg-3">
+                                  
+                                 <label for="ddlClass">Class : </label>
+                   
+                                <asp:DropDownList runat="server" ID="ddlClass" CssClass="form-control">
+                                  <asp:ListItem Text="Economy" ></asp:ListItem>
+                                   <asp:ListItem Text="Premium Economy"></asp:ListItem>
+                                      <asp:ListItem Text="Business"></asp:ListItem>
+                                 
+                              </asp:DropDownList>
+                          
+               </div>
+                   <div class="form-group col-lg-6" style="margin-top:3%" >
+
+                   <asp:Button ID="txtSearchFlight"   runat="server" Text="Search Flights" CssClass="btn btn-md btn-success" />
+                      
+               </div>
+
+                   </div>
+                  </form>
+          </div>
+
+          <!---Hotel Booking-->
+          <div id="idHotelBooking" style="display:none">
+
+              <form>
+                  <div class="form-group col-lg-12">
+                      <label for="txtFrom">I WANT TO GO</label>
+                      <input type="text" class="form-control" id="txtHotelLocation" placeholder="Enter City name, Area name or Hotel name">
+                  </div>
+                  <div class="form-group col-lg-5">
+                      <label for="txtCheckIn">CHECK IN</label>
+                      <span class="glyphicon glyphicon-calendar"></span>
+                      <input type="text" class="form-control" id="txtCheckIn" placeholder="Type Desitnation City">
+                  </div>
+                 
+                      <div class="form-group col-lg-5">
+                          <span class="glyphicon glyphicon-calendar"></span>
+                          <label for="txtCheckOut">CHECK OUT</label>
+                          <input type="text" class="form-control" id="txtCheckOut" placeholder="Departure">
+                      </div>
+                   <div class="form-group col-lg-2">
+                       <label for="txtNights">NIGHTS</label>
+                        <input type="number" class="form-control" id="txtNights" >
+                   </div>
+                   <div class="col-lg-2">
+
+                    <label for="txtHotelAdult">ADULT: (12+ YRS)</label>
+                          <input type="number" class="form-control" id="txtHotelAdult">
+
+                </div>
+               <div class="col-lg-2">
+
+                    <label for="txtHotelChild">CHILD: (2-11 YRS)</label>
+                          <input type="number" class="form-control" id="txtHotelChild" >
+
+                </div>
+
+                  <div class="form-group col-lg-6" style="margin-top:3%" >
+
+                   <asp:Button ID="btnSearchHotel" runat="server" Text="Search Hotels" CssClass="btn btn-md btn-warning" />
+
+               </div>
+              </form>
+
+          </div>
+
+      </div>
+
+        
+        <div id="divFlightDetails" class="container-fluid" style="display:none;margin-top:5%">
+            
+                
+            <div class="col-lg-3" style="border-right: 2px solid rgba(0,0,0,.25);box-shadow: 2px 2px 2px #888888;">
+                <div  style="background-color:#3F5373;text-align:center;color:#fff;margin-right:-6%;margin-left:-10%">
+                   <i class="fa fa-filter fa-2x" aria-hidden="true"></i> <p>Filters</p>
+                </div>
+                <p>
+           <label for="amount">Price range:</label>
+           <input type="text" id="amount"  style="border:0; color:#f6931f; font-weight:bold;"/>
+            </p>
+              
+             <div id="slider-range"></div>
+
+                <hr />
+
+              <h5>Air Lines</h5>
+                <div class="col-sm-10 list-group">
+                    <div class="checkbox list-group-item">
+
+                        <label style="float: left; text-align: left">
+
+                            <input type="checkbox" name="locationthemes" value="Indigo" /> Indigo
+                            
+                                 
+                        </label>
+                         <span style="width:10px;border-radius:20px;height:10px;background-color:#021C97;display:inline-block;" class="iconclass"></span>
+                    </div>
+                    <div class="checkbox list-group-item">
+                        <label>
+
+                            <input type="checkbox" name="locationthemes" value="AirAsia" />
+                            AirAsia 
+                               
+                        </label>
+                        <img src="img/airasia.png" width="30" height="30" style="margin-left: 25%" />
+                    </div>
+                    <div class="checkbox list-group-item">
+                        <label>
+
+                            <input type="checkbox" name="locationthemes" value="AirIndia" />
+                            AirIndia
+                               
+                        </label>
+                        <img src="img/Air-India-Logo.jpg" width="20" height="20" style="margin-left: 25%" />
+                    </div>
+                    <div class="checkbox list-group-item">
+                        <label>
+
+                            <input type="checkbox" name="locationthemes" value="Jet Airways" />
+                            Jet Airways
+                               
+                        </label>
+                        <img src="img/jet-airways.png" width="30" height="30" style="margin-left: 5%" />
+                    </div>
+                    
+                </div>
+                <hr />
+                
+               <div>
+                   <h5><span class="glyphicon glyphicon-time"></span> Departure Time</h5>
+                  <ul class="list-inline">
+                      <li style="border-right:3px solid tomato;background-color:#d9edf7"> Before 11AM </li>
+                       <li style="border-right:3px solid steelblue"> 11 AM to 9 AM </li>
+                      <li>After 9 AM</li>
+                  </ul>
+               </div>
+                <hr />
+                 <div>
+                   <h5><span class="glyphicon glyphicon-ban-circle"></span> No Of Stops </h5>
+                  <ul class="list-inline" style="padding-left:0px">
+                      <li style="border-right:3px solid tomato;background-color:#f2dede"> 0 Stop </li>
+                       <li style="border-right:3px solid steelblue"> 1 Stop</li>
+                      <li>1+ Stops</li>
+                  </ul>
+               </div>
+
+            </div>
+                 <div class="col-lg-9">
+                    
+                     <div class="col-lg-3">
+                        <p> <span style="width:10px;border-radius:20px;height:10px;background-color:#66bb6a;display:inline-block" class="iconclass"></span> Mumbai - Delhi </p>
+                        <p><i class="fa fa-plane fa-1x iconclass" aria-hidden="true"></i>Air India (AI-310)</p>
+                        <p><i class="fa fa-clock-o fa-1x iconclass"></i>9:45 - 22:00</p>
+                        <p><i class="fa fa-suitcase iconclass" aria-hidden="true"></i><span>2h 15m| Non stop</span></p>
+
+                    </div>
+                     <div class="col-lg-1">
+                         <h2>$1200</h2> <button type="button" id="btnBook" class="btn btn-md btn-success">Book</button>
+                     </div>
+                     <div class="col-lg-8">
+                         <ul class="mini-timeline">
+							<li   class="mini-timeline-lime">
+								<div class="timeline-icon"></div>
+								<div class="timeline-body">
+									<div  class="timeline-content">
+										Airlines stop accepting cancellation/rescheduling requests 24 - 72 hours.
+									</div>
+								</div>
+							</li>
+                             <li   class="mini-timeline-deeporange">
+								<div class="timeline-icon"></div>
+								<div class="timeline-body">
+									<div  class="timeline-content">
+										The rescheduling/cancellation fee may also vary based on fluctuations in currency conversion rates.
+									</div>
+								</div>
+							</li>
+                             <li   class="mini-timeline-info">
+								<div class="timeline-icon"></div>
+								<div class="timeline-body">
+									<div  class="timeline-content">
+										Rescheduling Charges = Rescheduling/Change Penalty + Fare Difference (if applicable)
+									</div>
+								</div>
+							</li>
+                              <li   class="mini-timeline-indigo">
+								<div class="timeline-icon"></div>
+								<div class="timeline-body">
+									<div  class="timeline-content">
+										The airline penalty is indicative only and Goibibo doesn't guarantee the accuracy of this information.
+									</div>
+								</div>
+							</li>
+
+                             </ul>
+                         <%--<ul class="mini-timeline">
+                             <li class="mini-timeline-deeporange"><div class="timeline-content">Airlines stop accepting cancellation/rescheduling requests 24 - 72 hours.</div></li>
+                             <li>The rescheduling/cancellation fee may also vary based on fluctuations in currency conversion rates.</li>
+                             <li>Rescheduling Charges = Rescheduling/Change Penalty + Fare Difference (if applicable)</li>
+                             <li>The airline penalty is indicative only and Goibibo doesn't guarantee the accuracy of this information.</li>
+                         </ul>--%>
+                     </div>
+
+                      <div class="col-lg-12 clearfix" style="margin-top:3%;text-align:center">
+                     <table class="table table-bordered">
+                         <thead>
+                             <tr>
+                                 <th>Airline</th>
+                                 <th>Departure</th>
+                                 <th>Arival</th>
+                                 <th>Duration</th>
+                                  <th>Price</th>
+                                 
+                             </tr>
+                         </thead>
+                         <tbody>
+                         </tbody>
+
+                     </table>
+                         
+
+                     
+                      </div>
+                     <div id="idPlaneDetails"></div>
+                    
+                     </div>
+            </div>
+          
+    <!-- About -->
+    <section id="abouEmptyt" class="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2></h2>
+                    <p class="lead"></p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+
+    
+    
+    
+    
+    <!-- Services -->
+    <!-- The circle icons use Font Awesome's stacked icon classes. For more information, visit http://fontawesome.io/examples/ -->
+    <section id="services" class="services bg-primary">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <h2>Our Services</h2>
+                    <hr class="small">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6">
+                            <div class="service-item">
+                                <span class="fa-stack fa-4x">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-plane fa-stack-1x text-primary"></i>
+                            </span>
+                                <h4>
+                                    <strong>Flight Services</strong>
+                                </h4>
+                                <p>We provide provide services in Dometic and International Flights</p>
+                                <a href="#" class="btn btn-light" data-toggle="modal" data-target="#myModal">Learn More</a>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="service-item">
+                                <span class="fa-stack fa-4x">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-bed fa-stack-1x text-primary"></i>
+                            </span>
+                                <h4>
+                                    <strong>Hotel Services</strong>
+                                </h4>
+                                <p>We provide flight services in Dometic and International hotels</p>
+                                <a href="#" class="btn btn-light" data-toggle="modal" data-target="#myModalHotel">Learn More</a>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="service-item">
+                                <span class="fa-stack fa-4x">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-calendar fa-stack-1x text-primary"></i>
+                            </span>
+                                <h4>
+                                    <strong>Holiday Trips</strong>
+                                </h4>
+                                <p>We provide best holiday trips in Dometic as well as International.</p>
+                                <a href="#" class="btn btn-light" data-toggle="modal" data-target="#myModalTrips">Learn More</a>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="service-item">
+                                <span class="fa-stack fa-4x">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-bus  fa-stack-1x text-primary"></i>
+                            </span>
+                                <h4>
+                                    <strong>Travel</strong>
+                                </h4>
+                                <p>Travel from Airport to Hotel with safe ,secured and less prices too.</p>
+                                <a href="#" class="btn btn-light" data-toggle="modal" data-target="#myModalTravel">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.row (nested) -->
+                </div>
+                <!-- /.col-lg-10 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+
+    <!-- Callout -->
+    <aside class="callout">
+        <div class="text-vertical-center" style="text-align:right;display: table-row-group">
+            <h2>Find the best place to experience the joy..</h2>
+        </div>
+    </aside>
+
+    <!-- Portfolio -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+                    <h2>Best Offers & Holiday Trips</h2>
+                    <hr class="small">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="portfolio-item">
+                                <a href="#">
+                                    <img class="img-portfolio img-responsive" style="height:333px" src="img/portfolio-1.jpg">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="portfolio-item">
+                                <a href="#">
+                                    <img class="img-portfolio img-responsive" style="height:333px" src="img/portfolio-2.jpg">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="portfolio-item">
+                                <a href="#">
+                                    <img class="img-portfolio img-responsive" style="height:333px" src="img/portfolio-3.jpg">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="portfolio-item">
+                                <a href="#">
+                                    <img class="img-portfolio img-responsive" style="height:333px" src="img/portfolio-4.jpg">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.row (nested) -->
+                    <a href="#" class="btn btn-dark">View More Items</a>
+                </div>
+                <!-- /.col-lg-10 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+
+          <!-- About -->
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2> About</h2>
+                    <hr class="small">
+                    <p class="lead">
+                        Travel with Us is the largest online hotels booking engine in the World and also one of the leading air aggregator. Travel With Us is also the number one ranked web app under the travel category. Travel With Us’s core value differentiator is delivery of the fastest and the most trusted user experiences, be it in terms of quickest search and booking, fastest payments, settlement and refund processes.
+
+                    </p>
+                    <a href="#" class="btn btn-dark">View More about Management</a>
+                </div>
+            </div>
+            <!-- /.row -->
+      </div>
+        <!-- /.container -->
+    </section>
+
+
+    <!-- Call to Action -->
+    <aside class="bg-primary" style="margin-top:5%">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h3>Contact Below for Consern quries.</h3>
+                    
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Map -->
+   <%-- <section id="contact" class="map">
+        <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
+        <br />
+        <small>
+            <a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a>
+        </small>
+        </iframe>
+    </section>--%>
+
+        <section id="contact" >
+
+            <div class="container">
+                <div class="col-lg-12">
+                    <div class="col-lg-4">
+                        <h4><strong>Flight</strong>
+                    </h4>
+                    <p>3481 Melrose Place
+                        <br>Beverly Hills, CA 90210</p>
+                    <ul class="list-unstyled">
+                        <li><i class="fa fa-phone fa-fw"></i> (123) 456-7890</li>
+                        <li><i class="fa fa-envelope-o fa-fw"></i> <a href="mailto:name@example.com">name@example.com</a>
+                        </li>
+                    </ul>
+                    <br>
+                   
+                    </div>
+                    <div class="col-lg-4">
+                        <h4><strong>Hotel</strong>
+                    </h4>
+                    <p>3481 Melrose Place
+                        <br>Beverly Hills, CA 90210</p>
+                    <ul class="list-unstyled">
+                        <li><i class="fa fa-phone fa-fw"></i> (123) 456-7890</li>
+                        <li><i class="fa fa-envelope-o fa-fw"></i> <a href="mailto:name@example.com">name@example.com</a>
+                        </li>
+                    </ul>
+                    <br>
+                   
+                    </div>
+                    <div class="col-lg-4">
+                        <h4><strong>Holiday Trips</strong>
+                    </h4>
+                    <p>3481 Melrose Place
+                        <br>Beverly Hills, CA 90210</p>
+                    <ul class="list-unstyled">
+                        <li><i class="fa fa-phone fa-fw"></i> (123) 456-7890</li>
+                        <li><i class="fa fa-envelope-o fa-fw"></i> <a href="mailto:name@example.com">name@example.com</a>
+                        </li>
+                    </ul>
+                    <br>
+                    
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+
+
+    <!-- Footer -->
+  
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+                 
+                    <ul class="list-inline">
+                        <li>
+                            <a href="#"><i class="fa fa-facebook fa-fw fa-3x"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-twitter fa-fw fa-3x"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-dribbble fa-fw fa-3x"></i></a>
+                        </li>
+                    </ul>
+                    <hr class="small">
+                    <p class="text-muted">Copyright &copy; Your Website 2014</p>
+                </div>
+            </div>
+        </div>
+        <a id="to-top" href="#top" class="btn btn-dark btn-lg"><i class="fa fa-chevron-up fa-fw fa-1x"></i></a>
+   
+    <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="background-color:steelblue">
+           
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" style="color:#fff">Flight Services</h4>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+         <div class="col-lg-2">
+              <span class="fa-stack fa-4x" >
+                                <i class="fa fa-circle fa-stack-2x" style="color:#d9edf7"></i>
+                                <i class="fa fa-plane fa-stack-1x text-primary"></i>
+                            </span>
+         </div>
+            <div class="col-lg-10">
+                <p>Contrary to popular belief, Lorem Ipsum is not simply random text.The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.   Contrary to popular belief, Lorem Ipsum is not simply random text.The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.   Contrary to popular belief, Lorem Ipsum is not simply random text.The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.   Contrary to popular belief, Lorem Ipsum is not simply random text.The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.   </p>
+
+            </div>
+
+                <div class="col-lg-2" style="background-color: #31708f;padding:5px;color: #fff;box-shadow: 2px 2px 2px #888888;text-align: center;">
+                    Our Clients 
+                </div>
+
+                <div class="col-lg-12" style="margin-top:3%">
+                    <div class="col-lg-3">
+                    <img src="img/indigo-squarelogo.png"  class="img" alt="Cinque Terre" width="100" height="100">
+                        </div>
+                    <div class="col-lg-3">
+                    <img src="img/jet-airways.png"  class="img" alt="Cinque Terre" width="100" height="100">
+                        </div>
+                    <div class="col-lg-3">
+                    <img src="img/airasia.png"  class="img" alt="Cinque Terre" width="100" height="100">
+                        </div>
+                    <div class="col-lg-3">
+                    <img src="img/Air-India-Logo.jpg"  class="img" alt="Cinque Terre" width="100" height="100">
+                        </div>
+                </div>
+
+                </div>
+        </div>
+        <%--<div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>--%>
+      </div>
+        </div>
+        </div>
+        
+        <div class="modal fade" id="myModalHotel" role="dialog">
+            <div class="modal-dialog modal-lg">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="background-color:steelblue">
+           
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" style="color:#fff">Hotel Services</h4>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+         <div class="col-lg-2">
+              <span class="fa-stack fa-4x" >
+                                <i class="fa fa-circle fa-stack-2x" style="color:#d9edf7"></i>
+                                <i class="fa fa-bed fa-stack-1x text-primary"></i>
+                            </span>
+         </div>
+            <div class="col-lg-10">
+                <p>Contrary to popular belief, Lorem Ipsum is not simply random text.The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.   Contrary to popular belief, Lorem Ipsum is not simply random text.The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.   Contrary to popular belief, Lorem Ipsum is not simply random text.The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.   Contrary to popular belief, Lorem Ipsum is not simply random text.The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.   </p>
+
+            </div>
+
+                <div class="col-lg-2" style="background-color: #31708f;padding:5px;color: #fff;box-shadow: 2px 2px 2px #888888;text-align: center;">
+                    Our Clients 
+                </div>
+
+                
+                </div>
+        </div>
+        <%--<div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>--%>
+      </div>
+</div>
+            </div>
+        
+           <div class="modal fade" id="myModalTrips" role="dialog">
+            <div class="modal-dialog modal-lg">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="background-color:steelblue">
+           
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" style="color:#fff">Holiday Trips</h4>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+         <div class="col-lg-2">
+              <span class="fa-stack fa-4x" >
+                                <i class="fa fa-circle fa-stack-2x" style="color:#d9edf7"></i>
+                                <i class="fa fa-calendar  fa-stack-1x text-primary"></i>
+                            </span>
+         </div>
+            <div class="col-lg-10">
+                <p>Contrary to popular belief, Lorem Ipsum is not simply random text.The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.   Contrary to popular belief, Lorem Ipsum is not simply random text.The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.   Contrary to popular belief, Lorem Ipsum is not simply random text.The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.   Contrary to popular belief, Lorem Ipsum is not simply random text.The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.   </p>
+
+            </div>
+
+                <div class="col-lg-2" style="background-color: #31708f;padding:5px;color: #fff;box-shadow: 2px 2px 2px #888888;text-align: center;">
+                    Our Clients 
+                </div>
+
+                
+                </div>
+        </div>
+        <%--<div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>--%>
+      </div>
+</div>
+            </div>
+
+
+           <div class="modal fade" id="myModalTravel" role="dialog">
+            <div class="modal-dialog modal-lg">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="background-color:steelblue">
+           
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" style="color:#fff">Travel Services</h4>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+         <div class="col-lg-2">
+              <span class="fa-stack fa-4x" >
+                                <i class="fa fa-circle fa-stack-2x" style="color:#d9edf7"></i>
+                                <i class="fa fa-bus  fa-stack-1x text-primary"></i>
+                            </span>
+         </div>
+            <div class="col-lg-10">
+                <p>Contrary to popular belief, Lorem Ipsum is not simply random text.The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.   Contrary to popular belief, Lorem Ipsum is not simply random text.The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.   Contrary to popular belief, Lorem Ipsum is not simply random text.The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.   Contrary to popular belief, Lorem Ipsum is not simply random text.The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.   </p>
+
+            </div>
+
+                <div class="col-lg-2" style="background-color: #31708f;padding:5px;color: #fff;box-shadow: 2px 2px 2px #888888;text-align: center;">
+                    Our Clients 
+                </div>
+
+                
+                </div>
+        </div>
+        <%--<div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>--%>
+      </div>
+</div>
+            </div>
+  
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script>
+    // Closes the sidebar menu
+    $("#menu-close").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+    // Opens the sidebar menu
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+    // Scrolls to the selected menu item on the page
+    $(function() {
+        $('a[href*=#]:not([href=#],[data-toggle],[data-target],[data-slide])').click(function() {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html,body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
+    });
+    //#to-top button appears after scrolling
+    var fixed = false;
+    $(document).scroll(function() {
+        if ($(this).scrollTop() > 250) {
+            if (!fixed) {
+                fixed = true;
+                // $('#to-top').css({position:'fixed', display:'block'});
+                $('#to-top').show("slow", function() {
+                    $('#to-top').css({
+                        position: 'fixed',
+                        display: 'block'
+                    });
+                });
+            }
+        } else {
+            if (fixed) {
+                fixed = false;
+                $('#to-top').hide("slow", function() {
+                    $('#to-top').css({
+                        display: 'none'
+                    });
+                });
+            }
+        }
+    });
+    // Disable Google Maps scrolling
+    // See http://stackoverflow.com/a/25904582/1607849
+    // Disable scroll zooming and bind back the click event
+    var onMapMouseleaveHandler = function(event) {
+        var that = $(this);
+        that.on('click', onMapClickHandler);
+        that.off('mouseleave', onMapMouseleaveHandler);
+        that.find('iframe').css("pointer-events", "none");
+    }
+    var onMapClickHandler = function(event) {
+            var that = $(this);
+            // Disable the click handler until the user leaves the map area
+            that.off('click', onMapClickHandler);
+            // Enable scrolling zoom
+            that.find('iframe').css("pointer-events", "auto");
+            // Handle the mouse leave event
+            that.on('mouseleave', onMapMouseleaveHandler);
+        }
+        // Enable map zooming with mouse scroll when the user clicks the map
+    $('.map').on('click', onMapClickHandler);
+    </script>
+
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/ui-lightness/jquery-ui.css">
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script type="text/javascript" src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script> 
+<script type="text/javascript">
+$(function () {
+    $("#txtfromDate").datepicker();
+    $("#txtToDate").datepicker();
+});
+$(function () {
+    fn_searchFromName();
+    fn_searchToName();
+});
+
+$(function () {
+    $("#slider-range").slider({
+        range: true,
+        min: 50,
+        max: 600,
+        values: [50, 600],
+        slide: function (event, ui) {
+            $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+           
+        },
+        change: function(event, ui) {
+            // when the user change the slider
+         
+           
+    },
+    stop: function(event, ui) {
+        // when the user stopped changing the slider
+        fn_getFilter("", ui.values[1]);
+    }
+        
+    });
+    $("#amount").val("$" + $("#slider-range").slider("values", 0) +
+      " - $" + $("#slider-range").slider("values", 1));
+    
+});
+
+
+function fn_searchFromName() {
+   // debugger;
+    $(".autosuggest").autocomplete({
+       
+        source: function (request, response) {
+            $.ajax({
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                url: "Index.aspx/GetAutoCompleteData",
+                data: "{'username':'" + document.getElementById('txtFrom').value + "'}",
+                dataType: "json",
+                success: function (data) {
+                   
+                    response(data.d);
+                    
+                },
+                error: function (result) {
+                    alert("Error");
+                }
+            });
+        }
+        
+    });
+}
+
+function fn_searchToName() {
+   // debugger;
+    $(".autosuggest").autocomplete({
+
+        source: function (request, response) {
+            $.ajax({
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                url: "Index.aspx/GetAutoCompleteData",
+                data: "{'username':'" + document.getElementById('txtTo').value + "'}",
+                dataType: "json",
+                success: function (data) {
+
+                    response(data.d);
+
+                },
+                error: function (result) {
+                    alert("Error");
+                }
+            });
+        }
+
+    });
+}
+
+
+function fn_getFilter(filterName,filterValue) {
+     debugger;
+  
+            $.ajax({
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                url: "Index.aspx/GetFilterData",
+                data: "{'price':'" + filterValue+ "'}",
+                dataType: "json",
+                success: function (data) {
+
+                    fn_BindFilteredData(data);
+
+                },
+                error: function (result) {
+                    alert("Error");
+                }
+            });
+        }
+
+   
+
+
+
+
+function fn_getPlaneDetails() {
+     debugger;
+   
+            $.ajax({
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                url: "Index.aspx/GetPlaneDetails",
+                dataType: "json",
+                success: function (data) {
+
+                    fn_BindFilteredData(data);
+
+                                 },
+                                     error: function (result) {
+                    alert("Error");
+                                 }
+            });
+        }
+
+    
+function fn_BindFilteredData(data)
+{
+    $("#idPlaneDetails").empty();
+    debugger;
+    for (var i = 0; i < data.d.length; i++) {
+        var str = " <div class='row details' style='text-align:center;font-size:16px;font-weight:normal;border-bottom: 1px solid rgba(0,0,0,.075)'>";
+        str += "<div class='col-lg-2' style='display:table-cell;'>";
+        str += "<span style='width:10px;border-radius:20px;height:10px;background-color:#021C97;display:inline-block;margin-right:10%' class='iconclass'></span> " + data.d[i].AirlineName + "</div>";
+        str += "<div class='col-lg-3' style='display:table-cell'> " + data.d[i].DepartureTime + " " + data.d[i].LocationName + "</div>";
+        str += "<div class='col-lg-2' style='display:table-cell'>" + data.d[i].ArrivalTime + " " + data.d[i].To_location + "</div>";
+        str += "<div class='col-lg-2' style='display:table-cell'> " + data.d[i].Duration + " 00 Min</div>";
+        str += "<div class='col-lg-2' style='display:table-cell;color:#CD3800;font-weight:bold'> " + data.d[i].Price + "</div>";
+        str += "<div class='col-lg-1' style='display:table-cell'><a data-toggle='collapse' data-target='#demo" + i + "'> <span class='glyphicon glyphicon-plus iconsize'> </span> </div>  </a>";
+
+
+        str += "<div id='demo" + i + "' class='col-lg-10 collapse' style='margin-top:3%;margin-left:5%;text-align:left'>";
+        str += "<ul class='list-inline list-group' style='padding-left:10px;'>";
+        str += "<li class='active'><a data-toggle='pill' href='#home" + i + "'>Flight Details</a></li>";
+        str += " <li><a data-toggle='pill' href='#menu1" + i + "' style='padding-left: 5px;'>Fare Details</a></li>";
+        str += " <li><a data-toggle='pill' href='#menu2" + i + "'>Baggage Details</a></li>";
+        str += " <li><a data-toggle='pill' href='#menu3" + i + "'>Cancellation fee</a></li>";
+        str += "</ul> <hr>";
+
+        str += "<div class='tab-content'>";
+        str += "<div id='home" + i + "' class='tab-pane fade in active'>";
+
+        str += "<p><span style='width: 10px; border-radius: 20px; height: 10px; background-color: #66bb6a; display: inline-block' class='iconclass'></span>Mumbai - Delhi </p>";
+        str += "<p><i class='fa fa-plane fa-1x iconclass' aria-hidden='true'></i>Air India (AI-310)</p>";
+        str += " <p><i class='fa fa-clock-o fa-1x iconclass'></i>9:45 - 22:00</p>";
+        str += "<p><i class='fa fa-suitcase iconclass' aria-hidden='true'></i><span>2h 15m| Non stop</span></p></div>";
+        str += "<div id='menu1" + i + "' class='tab-pane fade'>";
+
+
+        str += " <table class='table table-bordered'><thead><tr><th>Fare breakup</th></tr> </thead> <tbody><tr> <td>Base Fare (1 Adult, 0 Children, 0 Infant)	Rs 7,950</td></tr> <tr><td>Fees &amp; Surcharge	Rs 1,192</td></tr><tr><td>Total	Rs 9,142</td></tr></tbody></table> </div>";
+
+
+        str += "<div id='menu2" + i + "' class='tab-pane fade'>";
+
+
+        str += "<table class='table table-bordered'>";
+        str += "   <thead>";
+        str += "   <tr>";
+        str += "         <th>DEL - BOM</th>";
+
+        str += "       </tr>";
+        str += "      </thead>";
+        str += "         <tbody>";
+        str += "                <tr>";
+        str += "                    <td>Adult</td>";
+        str += "                     <td>	7 Kg Cabin</td>";
+        str += "                       <td>	25 Kg Checkin</td>";
+        str += "                   </tr>";
+        str += "                     <tr>";
+        str += "                           <td>Adult</td>";
+        str += "                          <td>7 Kg Cabin</td>";
+        str += "                           <td>25 Kg Checkin</td>";
+
+        str += "                       </tr>";
+        str += "                       <tr>";
+        str += "                           <td>Infant</td>";
+        str += "                           <td>0 Kg Cabin</td>";
+        str += "                           <td>10 Kg Checkin</td>";
+
+        str += "                       </tr>";
+        str += "                    </tbody>";
+        str += "                 </table>";
+        str += "             </div>";
+        str += "             <div id='menu3" + i + "' class='tab-pane fade'>";
+        str += "                 <h3>Menu 3</h3>";
+        str += "                  <p>Cancelation can be made before one day of arrival other wise the amount can be refundabale</p>";
+        str += "              </div>";
+        str += "          </div>";
+
+
+        $("#idPlaneDetails").append(str);
+
+    }
+}
+
+
+$(document).ready(function () {
+   // debugger;
+    
+    $("#idFlight").click(function () {
+       
+        $("#idFlightBooking").show();
+        $("#idHotelBooking").hide();
+
+        $("#idFlight").addClass('FlightClass');
+        $("#idHotel").removeClass('HotelClass');
+    });
+
+     $("#idtable").DataTable();
+
+    $("#idHotel").click(function () {
+
+        $("#idHotelBooking").css("display", "block");
+        $("#idHotelBooking").fadeIn("Slow");
+        $("#idFlightBooking").hide();
+       $("#idHotel").addClass('HotelClass');
+        $("#idFlight").removeClass('FlightClass');
+       
+
+    });
+
+
+    $(".iconsize").click(function () {
+       
+        $(".iconsize").toggleClass("glyphicon glyphicon-minus iconsize glyphicon glyphicon-plus iconsize");
+    });
+
+
+    $("#txtSearchFlight").click(function () {
+       
+        $("#divFlightDetails").slideDown("Slow");
+        window.location = "#divFlightDetails";
+        $("#divFlightDetails").css("display", "block");
+        fn_getPlaneDetails();
+
+        return false;
+    });
+
+    $("#btnBook").click(function () {
+        window.location.href = "BookTicket.aspx";
+    });
+
+
+    $("input[name='locationthemes']").click(function() {
+
+        //if ($('input[name="locationthemes"]:checked'))
+        //{
+        //    var input = '';
+            
+        $("input[name='locationthemes']").each(function () {
+            if ($('input[name="locationthemes"]:checked'))
+            {
+                alert(this.val());
+            }
+
+                    
+                })
+            
+       // }
+   
+    });
+
+});
+
+
+</script>
+
+        </form>
+</body>
+    
+</html>
+
+===================================
+
+
+
+
+using AirBus.App_Data;
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Web;
+using System.Web.Services;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace AirBus
+{
+    public partial class Index : System.Web.UI.Page
+    {
+        static string strconWFMS = ConfigurationManager.ConnectionStrings["connWorkflowManagementSystem"].ConnectionString;
+        static SqlConnection con = new SqlConnection(strconWFMS);
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        [WebMethod]
+        public static List<string> GetAutoCompleteData(string username)
+        {
+            List<string> result = new List<string>();
+
+
+            try
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("select Loc_Name from tbl_Location where Loc_Name LIKE '%'+@SearchText+'%'", con);
+                cmd.Parameters.AddWithValue("@SearchText", username);
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    result.Add(dr["Loc_Name"].ToString());
+                }
+                return result;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex; //TODO: Please log it or remove the catch
+            }
+            finally
+            {
+                con.Close();
+            }
+
+        }
+
+
+        [WebMethod]
+        public static Plane[] GetPlaneDetails()
+        {
+            List<string> result = new List<string>();
+
+
+            try
+            {
+
+                con.Open();
+                SqlCommand cmd = new SqlCommand("select * from tbl_PlaneDetails", con);
+                //cmd.Parameters.AddWithValue("@SearchText", username);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                List<Plane> req = new List<Plane>();
+                if (dt.Rows.Count > 0)
+                {
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        Plane rq = new Plane();
+                        rq.AirlineName = dt.Rows[i]["Airline_Name"].ToString();
+                        rq.LocationName = dt.Rows[i]["Loc_Name"].ToString();
+                        rq.DepartureTime = dt.Rows[i]["Departure_Time"].ToString();
+                        rq.To_location = dt.Rows[i]["To_Location"].ToString();
+                        rq.ArrivalTime = dt.Rows[i]["Arrival_Time"].ToString();
+                        rq.Duration = dt.Rows[i]["Duration"].ToString();
+                        rq.Price = dt.Rows[i]["Price"].ToString();
+                        req.Add(rq);
+                    }
+                }
+
+                con.Close();
+
+                return req.ToArray();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex; //TODO: Please log it or remove the catch
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+
+
+        [WebMethod]
+        public static Plane[] GetFilterData(int price)
+        {
+            List<string> result = new List<string>();
+
+
+            try
+            {
+
+                con.Open();
+                SqlCommand cmd = new SqlCommand("select * from tbl_PlaneDetails where price <= @SearchText", con);
+                cmd.Parameters.AddWithValue("@SearchText", price);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                List<Plane> req = new List<Plane>();
+                if (dt.Rows.Count > 0)
+                {
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        Plane rq = new Plane();
+                        rq.AirlineName = dt.Rows[i]["Airline_Name"].ToString();
+                        rq.LocationName = dt.Rows[i]["Loc_Name"].ToString();
+                        rq.DepartureTime = dt.Rows[i]["Departure_Time"].ToString();
+                        rq.To_location = dt.Rows[i]["To_Location"].ToString();
+                        rq.ArrivalTime = dt.Rows[i]["Arrival_Time"].ToString();
+                        rq.Duration = dt.Rows[i]["Duration"].ToString();
+                        rq.Price = dt.Rows[i]["Price"].ToString();
+                        req.Add(rq);
+                    }
+                }
+
+                con.Close();
+
+                return req.ToArray();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex; //TODO: Please log it or remove the catch
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+    }
+}
